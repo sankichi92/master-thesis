@@ -1,0 +1,23 @@
+dist: trusty
+sudo: required
+before_install:
+  - sudo apt-get install texlive texlive-lang-cjk
+before_script:
+  - extractbb figures/*
+  - cd paper
+  - curl 'http://www.soc.i.kyoto-u.ac.jp/kyomu-2016/?plugin=attach&refer=MS_Thesis&openfile=kuisthesislatex.tar.gz' -u $USER:$PASSWORD -o kuisthesis.tar.gz
+  - tar xvf kuisthesis.tar.gz --strip-components=1
+script:
+  - uplatex -interaction=nonstopmode -halt-on-error main
+  - upbibtex main
+  - uplatex -interaction=nonstopmode -halt-on-error main
+  - uplatex -interaction=nonstopmode -halt-on-error main
+  - dvipdfmx main
+deploy:
+  provider: releases
+  api_key:
+    secure: FLKB7uIr5LbJMyglwvAIopeNmnuq260jsZ+In7Ni1SqgPEYvmzirO8e4Jm31e/7cshJsY1gptPSAbEScOWqBADjgWCVVVzIbCAD2SiIRWgwi2yulX7s7OwkW+QdOPFqWki9wnxEMPUwlKZ+rgX2G5Iz43SNfCGLnNqYUU8iXfCXnnfYcVC6oNqC91XAB0tY2+7MuJHoLl740Oodwrk/1X76YdXSpx5f27JRDgXNemz7JvhmIwe06XtfSppuVmMS3E0J2naMHmE8uToa5BQylJnzVeBBs9nF6MxAnCHVVP15Ee6KaKYLypDHWAe4QJ32Pfyry0Vbszs+r79Djb/lOq0bG+aBY+ltx5fKI/7bEFKYNvE0Z2MByiAdbX8k3PTmAgalD+cIr/wKDfiZFraVEFDgrxbZGbiFkwxc0zhlVCauAisVFue1zIclQ9JePkKRm+bika8BfcvwrvtxvYS+oQZpGr4GVTiuooTrCxpytKnnddskH7lRX/Tk2P+mznuqCOzEbH/K6XbXmmpRMXUDiNtBwv1M/+XDUjF7Bp2QkhLuATrVI46SDX/ZdRtWzMw4wf1QgMKYu2FJTW2nQ8gaX+NRKJdpAOJ6XAuUnyA3t73b1YW3wVKpwYFZTE/C7Ssj5iw5ZIZFIK++Rr0jhjdIQfCoJV9U8Vj13c0/qenBqcUU=
+  file: main.pdf
+  skip_cleanup: true
+  on:
+    tags: true
