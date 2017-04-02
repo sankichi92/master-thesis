@@ -1,0 +1,111 @@
+\documentclass[../main.tex]{subfiles}
+
+
+\begin{document}
+
+\begin{eabstract}
+Forecasts of economic indices such as GDP, inflation, and unemployment rate are important for policymakers, companies, and investors.
+However, short-term forecasts of them are difficult since they are brought by complex interactions of various factors such as policies and economic activities by companies and individuals.
+Macroeconomic models and statistical methods have been used so far, but they have limitations.
+
+For economic forecasts, ``wisdom of the crowd,'' which aggregates forecasts of different humans, is successful.
+Machine learning has also attracted attention.
+Forecasts by a human group and machine learning are studied independently, and both of which perform better than traditional statistical methods.
+
+The forecasting method is greatly different between humans and machines.
+While humans consider information about political and economic circumstances, machines build statistical models from past time series.
+For example, in an unprecedented financial crisis such as 2007--2008, machines cannot forecast the future well, while humans can forecast it flexibly.
+In this manner, either one is not always more accurate.
+Sometimes humans are more accurate, and in other times machines are.
+
+This thesis aims to make more accurate forecasts by combining forecasts by humans and a machine.
+Combining forecasts has been studied as consensus forecasts in the field of econometrics and as ensemble methods in the field of machine learning.
+However, there is no way to change the combination of humans and a machine depending on the situation.
+This thesis introduces such a human-machine ensemble method.
+
+The key challenges in this thesis are as follows:
+
+\subparagraph{Modeling forecasts by humans and a machine and inventing an ensemble method using them}
+The characteristic of forecasts by a group of humans is that the expected errors can be reduced by increasing diversity, and the characteristic of forecasts by a machine is that the expected errors can be quantified based on the prediction model.
+Models that reflect each feature are necessary to make a human-machine ensemble method.
+The ensemble method also must make use of these characteristics.
+
+\subparagraph{Implementation and evaluation of economic forecasts using the proposed ensemble method}
+It is not clear whether the assumptions of the proposed models are satisfied in real problems.
+It is also necessary to confirm that the proposed method improves the forecast accuracy for actual problems.
+
+This thesis addresses the first problem as follows.
+First, we models outputs of machines as posterior distributions.
+The model can express the changes of the state according to inputs by regarding variance of the distribution as expected squared error.
+Second, we propose an ensemble method that uses the optimal number of humans depending on the expected error of a machine forecast.
+If the expected error of a machine forecast is sufficiently small, the method uses a machine forecast only, and if it is large, the method combines the optimal number of humans according to its value.
+
+For the second problem, we apply the proposed method to inflation forecasts in the U.S. to verify the models and evaluate the performance.
+A time-series analysis model, ARMA(1,1) was used as a forecast accuracy benchmark.
+We created Recurrent Neural Networks models for machine forecasts, and we used survey data of economic forecasts for humans forecasts.
+By combining these forecasts, we confirm the behavior of the proposed method and discuss it.
+
+The main contributions of this thesis are as follows:
+
+\subparagraph{Modeling forecasts by humans and a machine and inventing an ensemble method using them}
+We modeled the case where the expected error changes with each forecast by assuming posterior distributions to outputs of machines.
+Additionally, we proposed a method that adopts the optimal number of humans dynamically depending on the expected error of a machine forecast.
+
+\subparagraph{Implementation and evaluation of economic forecasts using the proposed ensemble method}
+We applied the human-machine nsemble method to inflation forecasts.
+As a result, we confirmed the proposed model can be applied to real inflation forecasts and forecast accuracy improves with 4 out of 7 data.
+\end{eabstract}
+
+\begin{jabstract}
+GDPやインフレーション，失業率などの経済指標の予測は，政策立案者や企業，投資家にとって重要である．
+しかし，これらの経済指標の変動は，企業や個人の経済活動，政策など様々な要因の複雑な相互作用の結果生じるため，短期的な変化を正確に予測することは難しい．
+これまでマクロ経済学によるモデルや統計的な手法が用いられてきたが，その予測能力には限界がある．
+
+これに関して，複数の人間による予測を組み合わせる「群衆の叡智(wisdom of the crowd)」が有効であることが知られている．
+また，近年，機械学習による予測も注目されている．
+人間の集団による予測と機械学習を用いた予測は別々に研究され，どちらも従来の統計的手法を超える予測精度を示している．
+
+しかし，人間と機械の予測の仕方は大きく異なる．
+人間は，景気や政策などの情報を総合的に考慮して予測を行うのに対し，機械は，過去の時系列のみから統計的なモデルを構築して予測を行う．
+たとえば，リーマン・ショックのような過去に例のない金融危機の際，機械はうまく予測を行うことができないのに対し，人間はある程度柔軟に予測を行うことができる．
+このように，どちらか一方が常により正確であるということはなく，人間の方が正確な場合もあれば，機械の方が正確な場合もある．
+
+本研究は，人間と機械の予測をうまく組み合わせることで，より正確な予測を行うことを目的とする．
+予測の組み合わせは，金融の分野では専門家の予測を総合するコンセンサス予測として，機械学習の分野では複数の予測モデルを合成するアンサンブル法として研究されてきた．
+しかし，人間と機械の予測方法の違いを踏まえ，状況に応じて使い分けるような方法は明らかではない．
+本研究では，そのような人間と機械のアンサンブル法の考案を試みる．
+
+本研究における課題として，以下の2つが挙げられる．
+
+\subparagraph{人間と機械の予測方法のモデル化と，それを用いたアンサンブル法の考案}
+人間による予測の特徴は，人数を大きくすることで多様性が増し，誤差の期待値を小さくできることであり，機械による予測の特徴は，出力に対する誤差の期待値を定量化できることである．
+人間と機械のアンサンブル法を考案するにあたって，それぞれの特徴を捉えたモデルが必要である．
+そして，人間と機械のアンサンブル法は，これらの特徴を活かしたものでなけれなばならない．
+
+\subparagraph{考案したアンサンブル法を用いた経済予測の実装と評価}
+考案したモデルにおける仮定が実問題で満たされるか明らかでない．
+また，提案手法が実際の問題に対して，機械や人間のみの場合よりも予測精度を改善するか確認する必要がある．
+
+一つ目の課題に対して，まず，機械による予測の出力を事後分布とするモデル化を行う．
+出力された分布の分散を二乗誤差の期待値とみなすことで，入力に応じた状態の変化を表現できる．
+次に，機械による予測の誤差の期待値に応じて，誤差の期待値を最小化する人数の人間による予測を組み合わせる手法を提案する．
+つまり，機械による予測の誤差の期待値が十分に小さければ，機械のみで予測を行い，誤差の期待値が大きければ，その値に応じた人数の人間による予測を組み合わせる．
+
+二つ目の課題に対しては，以上に提案した手法をアメリカのインフレ予測に適用し，モデルの検証と性能の確認を行う．
+予測精度の比較には，ベンチマークとして統計的時系列解析の手法を用いた．
+また，機械による予測として，Recurrent Neural Networks (RNN) による予測モデルを作成した．
+人間による予測には，長期にわたって継続している経済予測の調査データを用いた．
+これらの予測を組み合わせて提案手法の振る舞いを確認し，考察を行う．
+
+本研究の貢献は以下のとおりである．
+
+\subparagraph{人間と機械の予測方法のモデル化と，それを用いたアンサンブル法の考案}
+機械の出力に事後分布を仮定することで，予測のたびに誤差の期待値が変化する場合をモデル化した．
+そして，機械による予測の誤差の期待値に応じて，組み合わせる人間の予測の数を動的に決定できるようにした．
+
+\subparagraph{考案したアンサンブル法を用いた経済予測の実装と評価}
+提案した Human-Machine Ensemble Method を用いてインフレ予測を行なった．
+その結果，考案したモデルがインフレ予測に適用可能であること，また，7つのデータ中4つで予測精度が向上することを確認した．
+\end{jabstract}
+
+\end{document}

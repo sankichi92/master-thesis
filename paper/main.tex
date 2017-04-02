@@ -1,0 +1,62 @@
+\documentclass[master,english,withinsec]{kuisthesis}
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{subfiles}
+
+\graphicspath{{../figures/}{../../figures/}}
+\makeatletter
+\def\input@path{{../tables/}{../../tables/}}
+\makeatother
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\MSE}{MSE}
+\DeclareMathOperator{\RMSE}{RMSE}
+\DeclareMathOperator{\TC}{TC}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\cov}{cov}
+\bmdefine{\x}{x}
+\newcommand{\varm}{\var(\varepsilon_\theta|\x)}
+\newcommand{\varh}{\var(\varepsilon_h)}
+\newcommand{\covh}{\cov(\varepsilon_h)}
+\newcommand{\covmh}{\cov(\varepsilon_\theta, \varepsilon_h)}
+
+\jtitle[経済予測に関する人間と機械のアンサンブル法の考案]{経済予測に関する\\人間と機械のアンサンブル法の考案}
+\etitle{A Human-Machine Ensemble Method\\for Economic Forecasts}
+\jauthor{三吉 貴大}
+\eauthor{Takahiro MIYOSHI}
+\supervisor{Associate Professor Shigeo MATSUBARA}
+\date{February 7, 2017}
+\department{Social Informatics}
+
+\begin{document}
+\maketitle
+
+\subfile{abstract/abstract}
+
+\tableofcontents
+
+\subfile{introduction/introduction}
+
+\subfile{related-works/related-works}
+
+\subfile{proposal/proposal}
+
+\subfile{experiment/experiment}
+
+\subfile{results/results}
+
+\subfile{discussion/discussion}
+
+\subfile{conclusion/conclusion}
+
+\subfile{acknowledgments/acknowledgments}
+
+\bibliographystyle{kuissort}
+\bibliography{master-thesis}
+
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[master]{kuisthesis}
+
+\makeatletter
+\def\mkt@supervisor{指導教員}
+\def\mkt@department{京都大学大学院情報学研究科\\\@department 専攻 修士課程}
+\def\mkt@date{平成27年4月入学\\平成29年3月修了}
+\def\maketitle{\newpage\thispagestyle{empty}\global\c@page\@m
+	\begin{center}\large
+	{\Large\bf \mkt@masterthesis}\par
+	\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+	{\LARGE\bf \leavevmode\@etitle\par}
+	\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+	{\mkt@supervisor\qquad \@supervisor}
+	\vfill
+	\mkt@department\par
+  \bigskip\bigskip
+  \mkt@date\par
+	\bigskip\bigskip\bigskip\bigskip
+	{\Large \@author}\par
+	\end{center}\newpage}
+\makeatother
+
+\jtitle[経済予測に関する人間と機械のアンサンブル法の考案]{経済予測に関する\\人間と機械のアンサンブル法の考案}
+\etitle{A Human-Machine Ensemble Method\\for Economic Forecasts}
+\jauthor{三吉 貴大}
+\eauthor{Takahiro MIYOSHI}
+\supervisor{松原 繁夫 准教授}
+\department{社会情報学}
+
+\begin{document}
+\maketitle
+\maketitle
+\end{document}

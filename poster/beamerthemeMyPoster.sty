@@ -1,0 +1,114 @@
+\ProvidesPackage{beamerthemeMyPoster}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\selectcolormodel{rgb}
+\mode<presentation>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% custom colors
+\usecolortheme[RGB={76,114,176}]{structure}
+\definecolor{deepblue}{RGB}{76,114,176}
+\definecolor{kublue}{RGB}{0,38,111}
+\definecolor{deepred}{RGB}{196,78,82}
+\definecolor{bgblue}{RGB}{234,234,242}
+% \definecolor{deepgreen}{RGB}{85, 168, 104}
+% \definecolor{deepyellow}{RGB}{204,185,116}
+
+% headline colors and fonts
+\setbeamercolor{headline}{fg=white,bg=deepblue}
+\setbeamercolor{title in headline}{fg=white}
+\setbeamercolor{author in headline}{fg=white}
+\setbeamercolor{institute in headline}{fg=white}
+\setbeamercolor{separation line}{bg=kublue}
+
+% footline colors and fonts
+\setbeamercolor{footline}{fg=white,bg=deepblue}
+\setbeamerfont{footline}{size=\normalsize}
+
+% body colors and fonts
+\setbeamercolor*{normal text}{fg=black,bg=bgblue}
+
+% block environment
+\setbeamercolor*{block body}{bg=white,fg=black}
+\setbeamercolor*{block title}{bg=deepblue,fg=white}
+\setbeamerfont{block title}{size=\large}
+
+\setbeamercolor{alerted text}{fg=deepred}
+
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{block begin}{
+  \vskip1ex
+  \begin{beamercolorbox}[leftskip=1cm,colsep*=.75ex]{block title}%
+    \usebeamerfont*{block title}\insertblocktitle
+  \end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=.75ex,sep=.75ex,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{
+  \leavevmode
+
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}
+      \begin{column}{.02\paperwidth}
+      \end{column}
+      \begin{column}{.75\paperwidth}
+        \vskip4ex
+        \raggedleft
+        \usebeamercolor{title in headline}{\color{fg}\huge{\inserttitle}\\[1ex]}
+        \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+        \vskip1ex
+      \end{column}
+      \begin{column}{.01\paperwidth}
+      \end{column}
+      \begin{column}{.2\paperwidth}
+        % \vskip2cm
+        \begin{center}
+          \includegraphics[width=\linewidth]{logo.png}
+        \end{center}
+        % \vskip1.5cm
+      \end{column}
+      \begin{column}{.02\paperwidth}
+      \end{column}
+    \end{columns}
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{footline}%
+    \href{http://www.ai.soc.i.kyoto-u.ac.jp}{www.ai.soc.i.kyoto-u.ac.jp}
+		\hfill
+		2017年2月23日
+		\hfill
+		\href{mailto:miyoshi@ai.soc.i.kyoto-u.ac.jp}{miyoshi@ai.soc.i.kyoto-u.ac.jp}
+		\vskip1ex
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>

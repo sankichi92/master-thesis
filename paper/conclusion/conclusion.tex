@@ -1,0 +1,45 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Conclusion}
+\label{sec: Conclusion}
+
+This thesis proposed a human-machine ensemble method for economic forecasts.
+Short-term economic forecasts are difficult, so various methods have been proposed so far.
+Machine learning methods such as RNN create a prediction model based mainly on past time series.
+In surveys for economic forecasts, individual respondents make forecasts considering various information such as policy and economy.
+Thus, whereas machines are good at forecasts that depends on the past patterns, humans can make forecasts flexibly even when changes not in the past such as financial crisis.
+However, traditional ensemble methods can not utilize these difference.
+Therefore, we modeled a machine that outputs expected squared error depending on input by introducing posterior distributions to the output of the machine.
+Moreover, based on this model, we proposed an ensemble method to dynamically change the combination of the machine and humans depending on input.
+The ensemble minimizes the expected error.
+
+In addition, we conducted an experiment to apply the proposed method to actual inflation forecasts.
+The objectives were model verification, evaluation of forecast accuracy and confirmation of the behavior of the proposed method.
+We created RNN prediction models that output discrete probability distributions for machine forecasts, and used two surveys for human forecasts.
+From these combinations, we constructed seven ensembles.
+Evaluation was performed using test set prepared separately from the training set.
+We obtained following three results.
+First, the proposed models were applicable to actual inflation forecasts.
+Second, in 4 out of 7 cases, the ensemble made more accurate forecasts than the machine only and the humans only.
+Finally, we showed that the ensemble behaved as expected.
+When machine received a sequence not in the past, the ensemble drew human forecasts.
+
+The proposed ensemble method improved forecast accuracy in the majority cases, but not always reduce the error.
+The results suggest that the difference of a machine and humans is important for the proposed method to perform well.
+It is necessary that the group of machines and humans is more diverse than the group of humans only.
+In the experiment, machines and humans did not make so different forecasts since they are influenced by the index at the time of forecasting.
+However, there is a possibility of a more efficient human-machine ensemble method by extending the models or improving machine forecasts.
+
+Finally, the main contributions of this thesis are as follows:
+
+\subparagraph{Modeling forecasts by humans and a machine and inventing an ensemble method using them}
+We modeled the case where the expected error changes with each forecast by assuming the posterior distribution to the outputs of machines.
+In addition, we proposed a method which determines the optimal number of humans dynamically depending on the expected error of a machine forecast.
+
+\subparagraph{Implementation and evaluation of economic forecasts using the proposed ensemble method}
+We applied the human-machine ensemble method to inflation forecasts.
+As a result, we confirmed the proposed model can be applied to real inflation forecasts and forecast accuracy improves with 4 out of 7 data.
+
+\end{document}

@@ -1,0 +1,19 @@
+<redpen-conf>
+  <validators>
+    <validator name="InvalidExpression" />
+    <validator name="InvalidWord" />
+    <validator name="WordNumber" />
+    <validator name="Contraction" />
+    <validator name="Spelling">
+      <property name="list" value="Ang,Surowiecki,human-machine,LSTM,Bekaert,out-of-sample,CoreCPI,PCE,RMSE,RMSEs,RNN,Backpropagation,Lamberson,CorePCE,ARMA,time-series,softmax,CPI-LIV,CPI-SPF,CPI-6M,CPI-1998,crowdsourcing,expectation–maximization" />
+    </validator>
+    <validator name="SuccessiveWord" />
+    <validator name="DoubleNegative" />
+    <validator name="FrequentSentenceStart" />
+    <validator name="WeakExpression" />
+    <validator name="Quotation" />
+    <validator name="DuplicatedSection" />
+    <validator name="GappedSection" />
+    <validator name="SectionLevel" />
+  </validators>
+</redpen-conf>
